@@ -1,0 +1,62 @@
+Scalar Instructions
+                                       
+csrw, csrr (pseudo of csrrs)                             Read/write CSR (Control & Status Registers)            
+auipc                                                    Add upper immediate to PC (for PC-relative addressing) 
+lui                                                      Load upper immediate (sets high 20 bits of a register) 
+addi, sltiu, xori, andi, ori                             Immediate arithmetic/logical operations                
+add, sub, sll, slli, srl, srli, srai, neg                Arithmetic and shift operations                        
+mul, mulh, mulhu, divu, remu                             Multiplication/division instructions                   
+sltu                                                     Set if less than unsigned                              
+lw, lh, lhu, lb, lbu, li                                 Load word/half/byte/immediate                          
+sw, sh, sb                                               Store word/half/byte                                   
+jal, jalr                                                Jump and link                    
+beq, bne, blt, bltu, bge, bgeu                           Conditional branches                                   
+and, or                                                  Logical operations                                     
+
+Floating-Point (Scalar) Instructions
+
+fadd.s    Single-precision floating-point addition
+flw       Load single-precision float from memory into a floating-point register
+fld       Load double-precision floating-point value  
+fsd       Store double-precision floating-point value 
+fmul.d    Floating-point multiply double              
+fcvt.w.d  Convert double FP to 32-bit integer         
+fscvt.d.w Convert 32-bit integer to double FP         
+
+Vector Setup
+
+vsetvli   Set vector length & configuration 
+vsetivli  Set vector length using immediate 
+
+Vector Arithmetic
+
+vadd.vi, vadd.vv, vadd.vx   Vector addition (immediate or vector or scalar)                  
+vsub.vv                     Vector subtraction                                     
+vfmul.vv                    Vector floating-point multiply                         
+vfnmsub.vv                  Vector floating-point fused negative multiply-subtract 
+vwmul.vv                    Vector widening multiply                               
+vredsum.vs                  Vector reduction sum                                   
+vnsra.wi                    Vector narrow shift right arithmetic with immediate    
+
+Vector Conversion
+
+vfwcvt.f.x.v      Convert integer vector to floating-point vector         
+vfncvt.rtz.x.f.w  Convert FP vector to integer vector (round toward zero) 
+
+Vector Move
+
+vfmv.v.f           Move scalar FP to vector                    
+vmv.v.x, vmv.v.i   Move scalar integer/immediate to vector     
+vmv.x.s, vmv.s.x   Move vector element to scalar or vice versa 
+vmv1r.v            Broadcast scalar to all vector elements     
+
+Vector Memory
+ 
+vle32.v, vle64.v   Load 32-bit/64-bit vector from memory 
+vse32.v, vse64.v   Store 32-bit/64-bit vector to memory  
+vl1re32.v          Load 32-bit vector with unit-stride   
+vs1r.v             Store vector with unit-stride         
+
+Vector Utility
+
+vid.v     Initialize vector indices (v[i] = i) 
